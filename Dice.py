@@ -14,6 +14,9 @@ class Dice:
         dict3 = {1: 0.05, 2: 0.015, 3: 0.01, 4: 0.4, 5: 0.5, 6: 0.025}
         return dict1, dict2, dict3
 
+    def fac(self, x, y, z):
+        return np.absolute((x + y + z) / 3 - (3.01))
+
     def fac_(self, x):
         return np.absolute((x + 1 / 3 - (1.01)))
 
@@ -51,10 +54,10 @@ class Dice:
         for i in range(len(dv1)):
             fvalues.append(dv1_backprog[i])
             fvaluesind.append([i + 1, dictkey2[i][0] + 1, dictkey2[i][1]])
-        fres = fvalues.index(max(fvalues)) + 1
+        fres = fvalues.index(max(fvalues))
         #fres_ind = fvaluesind.index(max(fvalues))
         if n == 1:
-            return (fres, fvaluesind)
+            return fvaluesind[fres]
         if n == 0:
             return (dictkey)
 
